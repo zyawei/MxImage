@@ -19,6 +19,7 @@ public class MxFileImage extends MxImage {
         setWidth(source.getWidth());
         setHeight(source.getHeight());
         this.weekData = new WeakReference<>(source.getData());
+        this.path = path;
     }
 
     protected MxFileImage(Parcel in) {

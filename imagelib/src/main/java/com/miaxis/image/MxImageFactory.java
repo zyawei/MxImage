@@ -28,6 +28,9 @@ public class MxImageFactory {
      * @return {@link MxImage}
      */
     public static MxImage decodeFile(String path, @MxImage.Channel int channel) {
+        if (path == null) {
+            throw new NullPointerException("path == null");
+        }
         int[] outImageWidth = new int[1];
         int[] outImageHeight = new int[1];
         int sizeResult = mxImageTool.ImageLoad(path, channel, null, outImageWidth, outImageHeight);
@@ -43,6 +46,9 @@ public class MxImageFactory {
     }
 
     public static MxImage decodeBytes(byte[] bytes) {
+        if (bytes == null) {
+            throw new NullPointerException("bytes == null");
+        }
         byte[] pRGB24Buf = new byte[bytes.length * 3];
         int[] iWidth = new int[1];
         int[] iHeight = new int[1];
